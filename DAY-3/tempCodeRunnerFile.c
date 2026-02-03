@@ -4,19 +4,16 @@ int main() {
     int n, k;
 
     // Read array size
-    printf("enter size of array:");
     scanf("%d", &n);
 
     int arr[100000]; // large enough for constraints
 
     // Read array elements
-    printf("enter elements of array:");
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
     // Read key
-    printf("enter the value of key:");
     scanf("%d", &k);
 
     int comparisons = 0;
