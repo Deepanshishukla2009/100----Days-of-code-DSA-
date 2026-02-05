@@ -3,26 +3,22 @@
 int main() {
     int n, k;
 
-    // Read array size
     printf("enter size of array:");
     scanf("%d", &n);
 
-    int arr[100000]; // large enough for constraints
-
-    // Read array elements
+    int arr[100000]; 
+  
     printf("enter elements of array:");
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
-    // Read key
     printf("enter the value of key:");
     scanf("%d", &k);
 
     int comparisons = 0;
     int foundIndex = -1;
 
-    // Linear search
     for (int i = 0; i < n; i++) {
         comparisons++;
         if (arr[i] == k) {
@@ -31,7 +27,6 @@ int main() {
         }
     }
 
-    // Output
     if (foundIndex != -1) {
         printf("Found at index %d\n", foundIndex);
     } else {
