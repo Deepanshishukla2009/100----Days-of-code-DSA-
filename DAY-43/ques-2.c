@@ -41,3 +41,27 @@ Constraints:
 The number of nodes in the tree is in the range [0, 100].
 -100 <= Node.val <= 100*/
 
+int* inorderTraversal(struct TreeNode* root, int* returnSize) {
+    int* result = (int*)malloc(sizeof(int) * 100);
+    struct TreeNode* stack[100];
+    int top = -1;
+
+    *returnSize = 0;
+
+    while (root != NULL || top != -1) {
+        // Go left
+        while (root != NULL) {
+            stack[++top] = root;
+            root = root->left;
+        }
+
+        // Visit node
+        root = stack[top--];
+        result[(*returnSize)++] = root->val;
+
+        // Go right
+        root = root->right;
+    }
+
+    return result;
+}
