@@ -1,3 +1,5 @@
+/*BST Search*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
