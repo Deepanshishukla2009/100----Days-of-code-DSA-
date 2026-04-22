@@ -1,13 +1,15 @@
+/*Build Tree from Inorder & Postorder*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
-// Node structure
+
 struct Node {
     int data;
     struct Node *left, *right;
 };
 
-// Create node
+
 struct Node* newNode(int val) {
     struct Node* node = (struct Node*)malloc(sizeof(struct Node));
     node->data = val;
@@ -15,7 +17,7 @@ struct Node* newNode(int val) {
     return node;
 }
 
-// Find index in inorder
+
 int findIndex(int inorder[], int start, int end, int val) {
     for (int i = start; i <= end; i++) {
         if (inorder[i] == val)
@@ -24,31 +26,31 @@ int findIndex(int inorder[], int start, int end, int val) {
     return -1;
 }
 
-// Build tree
+
 struct Node* buildTree(int inorder[], int postorder[], int start, int end, int* postIndex) {
     if (start > end)
         return NULL;
 
-    // Pick root from postorder
+    
     int rootVal = postorder[*postIndex];
     (*postIndex)--;
 
     struct Node* root = newNode(rootVal);
 
-    // If only one node
+    
     if (start == end)
         return root;
 
     int inIndex = findIndex(inorder, start, end, rootVal);
 
-    // IMPORTANT: build right first
+    
     root->right = buildTree(inorder, postorder, inIndex + 1, end, postIndex);
     root->left  = buildTree(inorder, postorder, start, inIndex - 1, postIndex);
 
     return root;
 }
 
-// Preorder traversal
+
 void preorder(struct Node* root) {
     if (root == NULL) return;
 
