@@ -1,3 +1,5 @@
+/*Delete an Element from an Array*/
+
 #include <stdio.h>
 
 int main() {
