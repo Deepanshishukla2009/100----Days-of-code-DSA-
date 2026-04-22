@@ -1,3 +1,5 @@
+/*Compute Power Using Recursion*/
+
 #include <stdio.h>
 
 int power(int a, int b) {
